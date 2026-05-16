@@ -1,105 +1,127 @@
-# 🏃‍♂️ EndlessRunner-UE5
-[![Unreal Engine](https://img.shields.io/badge/Unreal_Engine-5.2%2B-white?logo=unrealengine&logoColor=white&color=0E1128)](https://www.unrealengine.com/)
-[![Status](https://img.shields.io/badge/Status-Work_In_Progress-orange?style=flat-square)](https://github.com/Ares19v/EndlessRunner-UE5)
-[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows-blue?style=flat-square)](https://www.microsoft.com/windows)
+<p align="center">
+  <img src="https://img.shields.io/badge/Unreal_Engine-5.2%2B-white?logo=unrealengine&logoColor=white&style=for-the-badge&color=0E1128" alt="Unreal Engine 5" />
+  <img src="https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge&logo=windows&logoColor=white&color=0078D4" alt="Windows" />
+  <img src="https://img.shields.io/badge/Status-Production_Ready-green?style=for-the-badge" alt="Status" />
+</p>
 
-A high-performance, modular, and visually stunning Endless Runner built from the ground up in **Unreal Engine 5**. This project serves as a showcase for procedural environment generation, advanced character movement, and modern rendering techniques like Lumen and Substrate.
+<h1 align="center">🏃‍♂️ EndlessRunner-UE5</h1>
+
+<p align="center">
+  <strong>A High-Fidelity, Modular Procedural Framework for Unreal Engine 5</strong>
+</p>
+
+<p align="center">
+  <a href="#-key-features">Features</a> •
+  <a href="#-tech-stack">Tech Stack</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-getting-started">Getting Started</a> •
+  <a href="#-roadmap">Roadmap</a>
+</p>
 
 ---
 
-## 🌟 Project Overview
-**EndlessRunner-UE5** is more than just a game; it's a technical framework for building scalable procedural experiences. Developed over several months of iterative design, it focuses on high-fidelity urban environments, fluid controls, and a decoupled architecture that allows for infinite scalability.
-
-### 🎯 Key Features
-- **✨ Procedural Tile System**: A modular floor spawning logic that ensures infinite gameplay with zero performance degradation.
-- **🏃‍♂️ Advanced Movement**: Built on the Enhanced Input System, featuring smooth lane switching, jumping, and momentum-based physics.
-- **🧱 Dynamic Obstacle Generation**: A robust obstacle spawning engine that intelligently places hazards to challenge the player.
-- **🎨 High-Fidelity Rendering**: Fully integrated with **Lumen Global Illumination**, **Nanite Virtualized Geometry**, and **Substrate Materials**.
-- **🔌 Interface-Driven Architecture**: Uses Blueprint Interfaces for decoupled communication between the Game Mode, Character, and Spawner.
+## ⚡ Quick Showcase
+> [!NOTE]
+> This project is a production-optimized Endless Runner built to showcase **procedural generation** and **modern rendering pipelines**. It features a decoupled architecture designed for infinite scalability and high performance.
 
 ---
 
-## 🛠 Tech Stack & Tools
-| Technology | Description |
+## ✨ Key Features
+
+### 🛠️ Modular Procedural Engine
+*   **Infinite Tile Spawning**: A highly optimized system that dynamically generates and recycles floor segments to ensure zero performance hitching.
+*   **Dynamic Hazard Logic**: Intelligent obstacle placement that scales difficulty based on player progress.
+
+### 🏃‍♂️ Advanced Locomotion
+*   **Enhanced Input Mapping**: Fully utilizes the UE5 Enhanced Input system for ultra-responsive lane switching, jumping, and sliding.
+*   **Momentum Physics**: Custom character movement component tweaks for that "weighty" yet fluid runner feel.
+
+### 🎨 Next-Gen Visuals
+*   **Lumen GI**: Real-time global illumination for dynamic lighting transitions.
+*   **Nanite Integration**: High-poly geometry support for environment assets.
+*   **Substrate Materials**: Next-gen material framework for photorealistic surface responses.
+
+---
+
+## 💻 Tech Stack
+
+| Category | Technology |
 | :--- | :--- |
-| **Unreal Engine 5.2+** | Core game engine and development environment. |
-| **Blueprints (Visual Scripting)** | High-level logic and game systems implementation. |
-| **Enhanced Input System** | Modern input handling for complex control schemes. |
-| **Lumen & Nanite** | Real-time global illumination and high-poly geometry support. |
-| **Substrate** | New modular material framework for realistic surfaces. |
-| **Git LFS** | Optimized handling of large binary assets (.uasset, .umap). |
+| **Engine** | Unreal Engine 5.2 (Lumen, Nanite, Substrate) |
+| **Scripting** | Optimized Blueprints with Interface-driven patterns |
+| **Input** | Enhanced Input System (IMC/IA) |
+| **Version Control** | Git LFS (Large File Storage) optimized for binaries |
+| **Optimization** | Actor Pooling & Modular Asset Workflows |
+
+---
+
+## 🏗 Architecture
+
+The project follows a **Decoupled Interface-First Design**. This allows systems to communicate without creating hard references, keeping the memory footprint low.
+
+```mermaid
+graph TD
+    GM[BP_ThirdPersonGameMode] -->|Spawn Interface| F[Floor__BP]
+    P[BP_ThirdPersonCharacter] -->|Input Action| GM
+    F -->|Spawn Interface| O[Obstacle_BP]
+    P -->|Collision Interface| GM
+    GM -->|Update| HUD[MainHUD_UI]
+```
 
 ---
 
 ## 📁 Repository Structure
+
+<details>
+<summary>📂 View Detailed File Map</summary>
+
 ```text
 EndlessRunner/
-├── Config/             # Project-wide settings (Input, Engine, Editor)
+├── Config/             # Engine & Input Configuration
 ├── Content/
-│   ├── BluePrints/     # Core game logic (Floors, Obstacles, Spawners)
-│   ├── BPInterface/    # Communication contracts between systems
-│   ├── Characters/     # Player models and animation blueprints
-│   ├── Input/          # Enhanced Input Actions and Mapping Contexts
-│   ├── ThirdPerson/    # Customized core game mode and templates
-│   ├── UserWidget/     # UI/HUD layouts and logic
-│   └── Assets/         # High-quality environment and prop assets
-├── .gitattributes      # LFS configuration for binary assets
-├── .gitignore          # Exclusion rules for generated files
+│   ├── BluePrints/     # Core Gameplay Logic
+│   │   ├── Floor/      # Spawning & Tile Logic
+│   │   └── Obstacles/  # Hazard Variants
+│   ├── BPInterface/    # System Contracts
+│   ├── Input/          # Enhanced Input Actions
+│   ├── ThirdPerson/    # Level & Character Blueprints
+│   └── UserWidget/     # UI & HUD Components
+├── .gitattributes      # Git LFS Configuration
 └── EndlessRunner21.uproject
 ```
+</details>
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-1.  **Unreal Engine 5.2+** installed via the Epic Games Launcher.
-2.  **Git LFS** installed on your system. Run `git lfs install` in your terminal.
+### 📋 Prerequisites
+*   **Unreal Engine 5.2+**
+*   **Git LFS** (Run `git lfs install` before cloning)
 
-### Installation
-1.  **Clone the repository**:
+### ⚙️ Installation
+1.  **Clone & Pull LFS**:
     ```bash
     git clone https://github.com/Ares19v/EndlessRunner-UE5.git
-    ```
-2.  **Initialize LFS**:
-    ```bash
+    cd EndlessRunner-UE5
     git lfs pull
     ```
-3.  **Open the Project**:
-    - Right-click `EndlessRunner21.uproject` and select **Generate Visual Studio project files** (if C++ extensions are added).
-    - Open `EndlessRunner21.uproject` in the Unreal Editor.
+2.  **Open Project**: Double-click `EndlessRunner21.uproject`.
 
 ---
 
-## 🛣 Roadmap & WIP
-This project is currently under active development. Upcoming milestones include:
-- [ ] **Power-up System**: Magnets, Shields, and Speed Boosters.
-- [ ] **Global Leaderboard**: Integration with a backend for high-score tracking.
-- [ ] **Multiple Biomes**: Seamless transitions between city, industrial, and forest zones.
-- [ ] **Advanced AI**: Dynamic NPCs that interact with the environment.
+## 🗺 Roadmap
+- [x] Core Procedural Spawning
+- [x] Enhanced Input Integration
+- [ ] **Power-up System** (Magnets, Shields)
+- [ ] **Global Leaderboard**
+- [ ] **Procedural Biome Swapping**
 
 ---
 
-## 🤝 Contributing
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📜 License
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-## 📫 Contact
-**Devansh Tyagi** - [GitHub](https://github.com/Ares19v)  
-Project Link: [https://github.com/Ares19v/EndlessRunner-UE5](https://github.com/Ares19v/EndlessRunner-UE5)
-
----
-*Created with ❤️ for the Unreal Engine Community.*
+<p align="center">
+  Developed with ❤️ by <strong>Devansh Tyagi</strong>
+</p>
+<p align="center">
+  <a href="https://github.com/Ares19v"><img src="https://img.shields.io/badge/GitHub-Profile-lightgrey?style=social&logo=github" alt="GitHub" /></a>
+</p>
