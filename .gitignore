@@ -1,0 +1,44 @@
+# Unreal Engine .gitignore template
+# Based on https://github.com/github/gitignore/blob/main/UnrealEngine.gitignore
+
+# Unreal Engine generated folders
+Binaries/*
+Build/*
+DerivedDataCache/*
+Intermediate/*
+Saved/*
+
+# Local settings
+Config/DefaultEditorPerProjectUserSettings.ini
+Config/DefaultEditorSettings.ini
+
+# Project files
+*.sln
+*.suo
+*.opensdf
+*.sdf
+*.VC.db
+*.VC.opendb
+
+# IDE folders
+.vs/
+.idea/
+.vscode/
+
+# Build system files
+Makefile
+CMakeLists.txt
+cmake-build-*/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Crash reports and logs
+*.log
+CrashReportClient/*
