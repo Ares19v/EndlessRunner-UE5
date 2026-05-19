@@ -109,3 +109,8 @@ This project adheres to the **Epic Games Technical Standards**:
 <p align="center">
   <strong>EndlessRunner-UE5 Technical Showcase</strong>
 </p>
+
+---
+<p align="center">
+  Made by Devansh Tyagi @ 2026
+</p>
