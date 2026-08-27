@@ -1,3 +1,5 @@
+[![CI](https://github.com/Ares19v/EndlessRunner-UE5/actions/workflows/ci.yml/badge.svg)](https://github.com/Ares19v/EndlessRunner-UE5/actions/workflows/ci.yml)
+
 <p align="center">
   <img src="https://img.shields.io/badge/Unreal_Engine-5.7-white?logo=unrealengine&logoColor=white&style=for-the-badge&color=0E1128" alt="Unreal Engine 5.7" />
   <img src="https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge&logo=windows&logoColor=white&color=0078D4" alt="Windows" />

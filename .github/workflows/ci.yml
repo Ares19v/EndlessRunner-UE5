@@ -1,0 +1,20 @@
+name: CI ? Unreal Project Integrity
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    name: Validate Project Descriptor & Configs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate .uproject JSON Schema
+        run: |
+          python3 -c "import json, glob; [json.load(open(f)) for f in glob.glob('*.uproject')]; print('UProject descriptor is valid JSON.')"
+      - name: Verify Config Directory Structure
+        run: |
+          test -d Config && test -d Content && echo "Directory structure intact."
