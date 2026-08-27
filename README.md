@@ -14,7 +14,7 @@
 ---
 
 ## 📖 Project Overview
-**EndlessRunner-UE5** is a production-grade framework designed to push the boundaries of procedural systems in **Unreal Engine 5.7**. This repository showcases high-level architecture, leveraging the latest engine features like **Gameplay StateTrees** and **Enhanced Substrate Workflows** to create a seamless, infinite gameplay experience.
+**EndlessRunner-UE5** is a high-performance framework designed to push the boundaries of procedural systems in **Unreal Engine 5.7**. This repository showcases high-level architecture, leveraging the latest engine features like **Gameplay StateTrees** and **Enhanced Substrate Workflows** to create a seamless, infinite gameplay experience.
 
 ---
 
